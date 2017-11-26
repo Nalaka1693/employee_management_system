@@ -16,6 +16,6 @@ class HashMap {
 		T find(const string key) const;
 };
 
-int hashFunc(string key);
+int hashFunc(const string key);
 
 #endif

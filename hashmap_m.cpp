@@ -1,4 +1,9 @@
 #include "hashmap_m.h"
+#include <string>
+#include <sstream>
+#include <exception>
+
+using namespace std;
 
 template <class T>
 void HashMap<T>::insert(const string key, T const &val) {
