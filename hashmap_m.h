@@ -1,7 +1,7 @@
-#include "hashmap_m.h"
-#include <iostream>
-#include <vector>
 #include <string>
+#include <sstream>
+#include <exception>
+using namespace std;
 
 #ifndef HASHMAP_M_H
 #define HASHMAP_M_H
@@ -9,11 +9,13 @@
 template <class T>
 class HashMap {
 	private:
-		vector<T> map;
+		T map[125];
 	public:
-		void insert(T const &in);
-		void remove(string key);
-		T find(string key) const;
+		void insert(const string key, T const &val);
+		void remove(const string key);
+		T find(const string key) const;
 };
+
+int hashFunc(string key);
 
 #endif

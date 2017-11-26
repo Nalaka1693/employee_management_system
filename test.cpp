@@ -1,4 +1,20 @@
-#include "hashmap_m.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <exception>
+using namespace std;
+
+int hashFunc(string key);
+
+template <class T>
+class HashMap {
+	private:
+		T map[125];
+	public:
+		void insert(const string key, T const &val);
+		void remove(const string key);
+		T find(const string key) const;
+};
 
 template <class T>
 void HashMap<T>::insert(const string key, T const &val) {
@@ -32,4 +48,22 @@ int hashFunc(const string key) {
 	} else {
 		throw invalid_argument("invalid employee ID: " + key);
 	}
+}
+
+int main() {
+	try {
+	  HashMap<int> hm;
+	  hm.insert("EM02", 345);
+	  hm.insert("EM03", 123);
+	  cout << hm.find("EM02") << endl;
+	  cout << hm.find("EM03") << endl;
+	  
+	  hm.remove("EM02");
+	  cout << hm.find("EM02") << endl;
+	  
+	  return 0;
+	} catch (exception const& ex) { 
+	  cerr << "Exception: " << ex.what() <<endl; 
+	  return -1;
+	} 
 }
